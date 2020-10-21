@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Layout = (props) => {
     const {title, children} = props;
-    const siteTitle = 'My blog.'
+    const siteTitle = 'My blog title.'
 
     return (
         <div className="page">
@@ -31,12 +31,55 @@ const Layout = (props) => {
                 &copy; {siteTitle}
             </footer>
 
-            <style jsx>
-                {`（ここに CSS を記述します）`}
-            </style>
-            <style jsx global>
-                {`（ここに CSS を記述します）`}
-            </style>
+            <style jsx>{`
+                .page {
+                padding: 2em 1em;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                }
+                header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 0 4em;
+                }
+                .site-title a {
+                color: inherit;
+                text-decoration: none;
+                }
+                footer {
+                margin-top: 4em;
+                padding-top: 2em;
+                padding-bottom: 2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+            `}</style>
+            <style jsx global>{`
+                html,
+                body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Noto Sans JP', -apple-system, "Segoe UI", "Helvetica Neue",
+                    "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
+                color: #222;
+                }
+                img,
+                iframe {
+                max-width: 100%;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                font-family: Montserrat, -apple-system, "Segoe UI", "Helvetica Neue",
+                    "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
+                }
+                * {
+                box-sizing: border-box;
+                }
+            `}</style>
         </div>
     )
 }
+
+export default Layout
